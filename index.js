@@ -12,6 +12,7 @@ const pfServer=express()
 pfServer.use(cors())
 pfServer.use(express.json())
 pfServer.use(router)
+pfServer.use('/upload',express.static('./uploads'))
 //pfServer.use(jwt)
 
 const PORT=3000 || process.env.PORT
