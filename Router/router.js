@@ -10,12 +10,13 @@ const route = express.Router()
 
 route.post('/reg', userController.userRegister)
 route.post('/log', userController.userLogin)
-route.put('/updateprofile', jwtMiddleware,multerConfig.single('profile'),userController.userUpdation)
+route.put('/updateprofile', jwtMiddleware, multerConfig.single('profile'), userController.userUpdation)
 
 route.post('/addprojects', jwtMiddleware, multerConfig.single('image'), projectController.addProject)
 route.get('/getlist', jwtMiddleware, projectController.getProjects)
 route.delete('/deletepro/:pid', jwtMiddleware, projectController.deleteProject)
 route.put('/updatepro/:pid', jwtMiddleware, multerConfig.single('image'), projectController.updateProject)
-route.get('/allprojects',projectController.getAllProjects)
+route.get('/allprojects', projectController.getAllProjects)
+route.get('/search', projectController.searchProjects)
 
 module.exports = route
